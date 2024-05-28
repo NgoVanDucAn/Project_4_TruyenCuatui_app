@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>TruyenCuaTui Admin Sever Web</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/User/userDetail.js"></script>
+    
+</body>
+   
+</head>
+
+<body id="restricted-form">
+    <div class="container-fluid position-relative d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Sidebar Start -->
+        <div id="sidebarContainer"></div>
+        
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <div id="navbarContainer"></div>
+            <!-- Navbar End -->
+            
+            <!-- Navbar End -->
+
+
+
+            <!-- Blank Start -->
+            <div class="container-fluid pt-4 px-4">
+                <a class="btn" href="users-manager.html"><h1><i class="bi bi-arrow-left-square-fill"></i></h1></a>
+                <div id="detail" class="bg-secondary rounded p-4">
+                    <h3 id="name" style="text-align: center; word-wrap: break-word;"></h3>
+                    <hr>
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        
+                        <div class="d-none d-md-flex ms-4 d-md-grid">
+                            <img id="image" src="img/loading-wtf.gif" alt="" width="250" height="320">
+                            <div>
+                                <div class="flex1">
+                                    <h5>Id:&nbsp&nbsp</h5>
+                                    <a id="UserId"></a>
+                                </div>
+                                <hr>
+                                <div class="flex1">
+                                    <h5>Name:&nbsp&nbsp</h5>
+                                    <a id="UserName"></a>
+                                </div>
+                                <hr>
+                                <div class="flex1">
+                                    <h5>Gender:&nbsp&nbsp</h5>
+                                    <a id="gender"></a>
+                                </div>
+                                <hr>
+                                <div class="flex1">
+                                    <h5>DateOfBirth:&nbsp&nbsp</h5>
+                                    <a id="dateOfBirth"></a>
+                                </div>
+                                <hr>
+                                <div class="flex1">
+                                    <h5 >Role:&nbsp&nbsp</h5>
+                                   
+                                        <button type="button" id="openModalButton" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#categoryModal">
+                                            Check Role
+                                        </button>
+                                        <!-- Modal -->
+                                        <div class="modal fade container-fluid pt-4 px-4" id="categoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content text-center bg-secondary rounded p-4">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Role</h1>
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <!-- <form id="createCategoryForm"> -->
+                                                        <form id="rolesForm">
+                                                            <!-- <div class="form-floating">
+                                                                 <div id="rolesCheckboxList"></div>
+                                                            </div> -->
+                                                            <hr>
+                                                            <div class="form-check form-switch rolesCheckboxList" id="rolesCheckboxList">
+                                                                <input class="form-check-input" style="height:20px; width:40px;" type="checkbox" id="flexSwitchCheckDefault">
+                                                                <label class="form-check-label" for="flexSwitchCheckDefault"><h4>Admin</h4> </label>
+                                                            </div>
+                                                            <hr>
+                                                            
+                                                        </form>
+                                                        <!-- </form> -->
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <button type="button" id="submitButton" class="btn btn-primary">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    
+                                </div>
+                               
+                                
+                            </div>
+                        </div>
+                        
+                    
+                    </div>
+                   
+                    <hr>
+                    <button class="btn btn-outline-danger">Delete</button>
+                </div> 
+                
+            </div>
+
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary text-center rounded p-4">
+                   
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                      
+                        <!-- Thẻ select để tạo dropdown -->
+                        <select id="mySelect" >
+                            <option value="a-z">A - Z</option>
+                            <option value="z-a">Z - A</option>
+                        </select>
+                        
+                        <!-- Script để xử lý sự kiện khi người dùng chọn một option -->
+                        <script>
+                            // Lấy thẻ select bằng id
+                            var selectElement = document.getElementById("mySelect");
+                        
+                            // Xử lý sự kiện khi người dùng thay đổi option
+                            selectElement.addEventListener("change", function() {
+                            // Lấy giá trị của option đã chọn
+                            var selectedValue = selectElement.value;
+                            // In ra giá trị đã chọn
+                            console.log("Selected fruit: " + selectedValue);
+                            });
+                        </script>
+                    </div>
+                    <div class="table-responsive">
+                        <h3 class="mb-0">All Story</h3>
+                        <br>
+                        <table id="storiesChapter" class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-white">
+                                    <th scope="col"><input class="form-check-input" type="checkbox"></th>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">SubName</th>
+                                    <th scope="col">Last Update</th>
+                                    <th scope="col">View</th>
+                                    <th scope="col">IsPay?</th>
+                                    <th colspan="3" style="text-align: center;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               
+                                
+                            </tbody>
+                        </table>
+                        <ul class="pagination">
+                           
+                            <!-- Thêm các liên kết đến các trang khác nếu cần -->
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Blank End -->
+
+
+            <!-- Footer Start -->
+            <div id="footerContainer"></div>
+            <!-- Footer End -->
+        </div>
+        <!-- Content End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="lib/chart/chart.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

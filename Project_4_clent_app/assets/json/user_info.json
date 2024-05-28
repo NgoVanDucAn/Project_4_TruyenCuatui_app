@@ -1,0 +1,20 @@
+{
+  "userId": "string",
+  "email": "string",
+  "gender": 0,
+  "dateOfBirth": "2024-04-26T15:10:08.220Z",
+  "position": "string",
+  "stories": [
+    {
+      "storyId": "string",
+      "name": "string",
+      "subName": "string",
+      "description": "string",
+      "image": "string",
+      "createdTime": "2024-04-26T15:10:08.220Z",
+      "updatedTime": "2024-04-26T15:10:08.220Z",
+      "view": "string",
+      "status": true
+    }
+  ]
+}
